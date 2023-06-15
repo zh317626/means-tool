@@ -14,8 +14,8 @@ npm install means-tool
 ### introduce
 
 ```
-import { files, means, regular } from 'means-tool/dist' // or
-import means from 'means-tool/dist';
+import { files, means, regular } from 'means-tool' // or
+import { files, means, regular } from 'means-tool/dist'
 ```
 
 ### employ
