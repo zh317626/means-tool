@@ -3,7 +3,7 @@
 
 Common methods of front-end development
 
-The plug-in is mainly for the front-end work of some common methods of encapsulation and some regular and file simple processing
+This plug-in is mainly for the front-end work of some common methods of encapsulation and some common RE and file format processing
 
 ### install
 
