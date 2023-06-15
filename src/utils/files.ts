@@ -1,7 +1,7 @@
 
 export default {
   /**
- * 获取图片大小
+ * Get picture information
  * @param imgUrl 图片链接
  * @returns Promise
  */
@@ -19,10 +19,10 @@ export default {
   },
 
   /**
-   * 将base64转为file文件
+   * Convert base64 to file
    * @param {*} base base64
    * @param {*} filename 名字
-   * @returns file对象
+   * @returns file object
    */
   base64toFile(base: String, filename: any = new Date().getTime()) {
     var arr: any = base.split(',');

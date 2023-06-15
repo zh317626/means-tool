@@ -1,9 +1,9 @@
 // 常用方法
 export default {
   /**
-   * url转对象
+   * url-to-object
    * @param {*} url 
-   * @returns 对象
+   * @returns object
    */
   urlToObjet(url: string) {
     let theRequest = new Object();
