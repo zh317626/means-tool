@@ -32,3 +32,5 @@ means.urlToObjet('https://********index?id=1131goods=494')
 | base64toFile | base64转file文件 | string | file对象 |
 | urlToObjet | url链接转对象 | string | Object  |
 
+
+Common front-end methods will continue to be updated
