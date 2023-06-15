@@ -1,0 +1,33 @@
+{
+  "name": "means-tool",
+  "version": "1.0.0",
+  "description": "前端开发常用方法,工具",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build:types": "tsc",
+    "build": "npm run build:types && rollup --config",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {},
+  "keywords": [
+    "means",
+    "way",
+    "tool",
+    "tools",
+    "typescript"
+  ],
+  "author": "朱洪",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "rollup": "^3.25.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "tslib": "^2.5.3",
+    "typescript": "^5.1.3"
+  }
+}
