@@ -10,6 +10,8 @@ declare const _default: {
     means: {
         urlToObjet(url: string): Object;
         ascii(obj?: Object): any;
+        trim(str: string, type?: string | number): string;
+        randomColor(): string;
     };
 };
 export default _default;

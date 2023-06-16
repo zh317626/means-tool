@@ -108,6 +108,38 @@
               str += sortArr[i] + obj[sortArr[i]];
           }
           return str;
+      },
+      /**
+       * 清除字符串空格
+       * @param str 字符串
+       * @param type 1:所有;2:前后;3:前;4:后
+       * @returns string
+       */
+      trim(str, type = 1) {
+          switch (type) {
+              case 1:
+                  return str.replace(/\s+/g, "");
+              case 2:
+                  return str.replace(/(^\s*)|(\s*$)/g, "");
+              case 3:
+                  return str.replace(/(^\s*)/g, "");
+              case 4:
+                  return str.replace(/(\s*$)/g, "");
+              default:
+                  return str;
+          }
+      },
+      /**
+       * 随机生成16进制颜色
+       * @returns
+       */
+      randomColor() {
+          let letters = '0123456789ABCDEF';
+          let color = '#';
+          for (let i = 0; i < 6; i++) {
+              color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
       }
   };
 
