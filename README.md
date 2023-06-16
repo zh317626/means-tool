@@ -43,7 +43,7 @@ means.urlToObjet('https://********index?id=1131goods=494')
 | urlToObjet | url链接转对象 | string | x | x | x | Object |  
 | ascii | ASCII sort | string | x | x | x | string  |  
 | trim | 清除字符串空格 | string |  1  | x | x | string |  
-| randomColor | 随机生成16进制颜色 | x | x  | x | x  | string  |  
+| randomColor | 随机16进制颜色 | x | x  | x | x  | string  |  
 | **2、regular** |  |  |  |    |   |   |  
 | phone | 电话号码验证 | string | x | x | x | Boolean |  
 | base64toFile | 身份证验证 | string | x | x | x | Boolean |  
