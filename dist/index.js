@@ -1,15 +1,34 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.utilibs = {}));
-})(this, (function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.utilibs = factory());
+})(this, (function () { 'use strict';
 
   // 正则
-  var regular = {};
+  var regular = {
+      /**
+       * 电话号码验证
+       * @param {*} phone
+       * @returns
+       */
+      phone(phone) {
+          const mPattern = /^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-7|9])|(?:5[0-3|5-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[1|8|9]))\d{8}$/;
+          return mPattern.test(phone);
+      },
+      /**
+       * 身份证验证
+       * @param {*} card 可验证一二代身份证
+       * @returns
+       */
+      identityCard(card) {
+          const cardID = /(^\d{8}(0\d|10|11|12)([0-2]\d|30|31)\d{3}$)|(^\d{6}(18|19|20)\d{2}(0\d|10|11|12)([0-2]\d|30|31)\d{3}(\d|X|x)$)/;
+          return cardID.test(card);
+      }
+  };
 
   var files = {
       /**
-     * 获取图片大小
+     * Get picture information
      * @param imgUrl 图片链接
      * @returns Promise
      */
@@ -26,10 +45,10 @@
           });
       },
       /**
-       * 将base64转为file文件
+       * Convert base64 to file
        * @param {*} base base64
        * @param {*} filename 名字
-       * @returns file对象
+       * @returns file object
        */
       base64toFile(base, filename = new Date().getTime()) {
           var arr = base.split(',');
@@ -49,9 +68,9 @@
   // 常用方法
   var means = {
       /**
-       * url转对象
+       * url-to-object
        * @param {*} url
-       * @returns 对象
+       * @returns object
        */
       urlToObjet(url) {
           let theRequest = new Object();
@@ -65,12 +84,40 @@
               }
           }
           return theRequest;
+      },
+      /**
+       * ASCII sort
+       * @param {*} obj 对象
+       * @returns string
+       */
+      ascii(obj = {}) {
+          // throw 'Object cannot be null'
+          // if (!Object.keys(obj).length) return console.error('Object cannot be null'); // 对象不能为空
+          if (!Object.keys(obj).length)
+              return console.warn('Object cannot be null'); // 对象不能为空
+          // if (!Object.keys(obj).length) throw new Error('对象不能为空'); // 对象不能为空
+          let arr = new Array();
+          let num = 0;
+          for (let i in obj) {
+              arr[num] = i;
+              num++;
+          }
+          let sortArr = arr.sort();
+          let str = ''; //自定义排序字符串
+          for (let i in sortArr) {
+              str += sortArr[i] + obj[sortArr[i]];
+          }
+          return str;
       }
   };
 
-  exports.files = files;
-  exports.means = means;
-  exports.regular = regular;
+  var index = {
+      regular,
+      files,
+      means
+  };
+
+  return index;
 
 }));
 //# sourceMappingURL=index.js.map
