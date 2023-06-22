@@ -46,7 +46,7 @@ means.urlToObjet('https://********index?id=1131goods=494')
 | randomColor | 随机16进制颜色 | x | x  | x | x  | string  |  
 | **2、regular** |  |  |  |    |   |   |  
 | phone | 电话号码验证 | string | x | x | x | Boolean |  
-| base64toFile | 身份证验证 | string | x | x | x | Boolean |  
+| identityCard | 身份证验证 | string | x | x | x | Boolean |  
 | **3、files** |  |  |  |     |   |   |  
 | getImageInfo | 获取图片信息 | string | x | x | x | Promise |  
 | base64toFile | base64转file文件 | string | x | x | x | file对象 |  
