@@ -23,5 +23,19 @@ declare const _default: {
      * @returns
      */
     randomColor(): string;
+    /**
+     * 获取最大值
+     * @param arr 数组
+     * @param key key值
+     * @returns
+     */
+    max(arr: any[], key?: string): string | number | void;
+    /**
+     * 最小值
+     * @param arr 数组
+     * @param key key值
+     * @returns
+     */
+    min(arr?: any[], key?: string): string | number | void;
 };
 export default _default;

@@ -36,6 +36,7 @@ means.urlToObjet('https://********index?id=1131goods=494')
 - 📢 x 表示没有参数
 - ☀️ string|number等表示有参数或者数据类型
 - 💸 1或者true等表示该参数的默认值
+- 🍫 ?意思是可以为空
 
 | method/方法 | explain/说明 | 参数1 | 参数2 |  参数3  | 参数4 | 返回类型 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -44,6 +45,8 @@ means.urlToObjet('https://********index?id=1131goods=494')
 | ascii | ASCII sort | string | x | x | x | string  |  
 | trim | 清除字符串空格 | string |  1  | x | x | string |  
 | randomColor | 随机16进制颜色 | x | x  | x | x  | string  |  
+| max | 最大值 | Array | string?  | x | x  | string  |  
+| min | 最小值 | Array | string?  | x | x  | string  |  
 | **2、regular** |  |  |  |    |   |   |  
 | phone | 电话号码验证 | string | x | x | x | Boolean |  
 | identityCard | 身份证验证 | string | x | x | x | Boolean |  

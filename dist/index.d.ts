@@ -12,6 +12,8 @@ declare const _default: {
         ascii(obj?: Object): any;
         trim(str: string, type?: string | number): string;
         randomColor(): string;
+        max(arr: any[], key?: string | undefined): string | number | void;
+        min(arr?: any[], key?: string | undefined): string | number | void;
     };
 };
 export default _default;

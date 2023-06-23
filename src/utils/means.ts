@@ -75,6 +75,48 @@ export default {
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+  },
+
+  /**
+   * 最大值
+   * @param arr 数组
+   * @param key key值
+   * @returns 
+   */
+  max(arr: any[], key?: string) {
+    if (!arr.length) return console.warn('数组不能为空');
+    const isKeyObj:boolean = arr.some(item => { return Object.keys(item).length });
+    if (isKeyObj && !key) return console.warn('key值不能为空');
+    
+    let maxs: number | string = 0;
+    if (!isKeyObj) { // 一维数组
+      maxs = arr.reduce((one, pro) => { return one < pro ? pro : one });
+    } else if (key) {
+      if (!arr.some(item => { return item[key] })) return console.warn(`Not found ${key} fields`);
+      maxs = arr.reduce((one, pro) => { return one[key] < pro[key] ? pro : one })[key];
+    };
+    return maxs;
+  },
+
+  /**
+   * 最小值
+   * @param arr 数组
+   * @param key key值
+   * @returns 
+   */
+  min(arr: any[] = [], key?: string) {
+    if (!arr.length) return console.warn('数组不能为空');
+    const isKeyObj:boolean = arr.some(item => { return Object.keys(item).length });
+    if (isKeyObj && !key) return console.warn('key值不能为空');
+
+    let mins: number | string = 0;
+    if (!isKeyObj) {
+      mins = arr.reduce((one, pro) => { return one > pro ? pro : one });
+    } else if (key) {
+      if (!arr.some(item => { return item[key] })) return console.warn(`Not found ${key} fields`);
+      mins = arr.reduce((one, pro) => { return one[key] > pro[key] ? pro : one })[key];
+    };
+    return mins;
   }
 
 }
