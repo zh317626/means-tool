@@ -47,6 +47,8 @@ means.urlToObjet('https://********index?id=1131goods=494')
 | randomColor | 随机16进制颜色 | x | x  | x | x  | string  |  
 | max | 最大值 | Array | string?  | x | x  | string  |  
 | min | 最小值 | Array | string?  | x | x  | string  |  
+| throttle | 节流 | Function | number?  | x | x  | string  |  
+| shake | 防抖 | Function | number?  | x | x  | string  |  
 | **2、regular** |  |  |  |    |   |   |  
 | phone | 电话号码验证 | string | x | x | x | Boolean |  
 | identityCard | 身份证验证 | string | x | x | x | Boolean |  
