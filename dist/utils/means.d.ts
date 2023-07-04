@@ -24,7 +24,7 @@ declare const _default: {
      */
     randomColor(): string;
     /**
-     * 获取最大值
+     * 最大值
      * @param arr 数组
      * @param key key值
      * @returns
@@ -37,5 +37,17 @@ declare const _default: {
      * @returns
      */
     min(arr?: any[], key?: string): string | number | void;
+    /**
+     * 节流
+     * @param fn 函数
+     * @param time 时间
+     */
+    throttle(fn: Function, time?: number): void;
+    /**
+     * 防抖
+     * @param fn 函数
+     * @param time 时间
+     */
+    shake(fn: Function, time?: number): void;
 };
 export default _default;

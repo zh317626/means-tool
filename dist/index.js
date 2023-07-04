@@ -66,6 +66,8 @@
   };
 
   // 常用方法
+  let throttleTimer = 0;
+  let shakeTimer = 0;
   var means = {
       /**
        * url-to-object
@@ -142,7 +144,7 @@
           return color;
       },
       /**
-       * 获取最大值
+       * 最大值
        * @param arr 数组
        * @param key key值
        * @returns
@@ -186,6 +188,47 @@
               mins = arr.reduce((one, pro) => { return one[key] > pro[key] ? pro : one; })[key];
           }
           return mins;
+      },
+      /**
+       * 节流
+       * @param fn 函数
+       * @param time 时间
+       */
+      throttle(fn, time = 500) {
+          if (typeof fn !== 'function')
+              return console.warn('节流函数参数一，必须是函数');
+          // 将this指向赋值   此时的 this 指向的是 实例 button
+          let context = this;
+          // 获取传过来的值
+          let ages = arguments;
+          // 清除定时器
+          if (!throttleTimer) { // 判定timer没有数值
+              // 声明一个定时器
+              throttleTimer = setTimeout(() => {
+                  // 在定时器里面调用需要 节流的函数
+                  fn.call(context, ages);
+                  // 如果执行到这儿的是否需要把 timer 初始化 为null  ;便于下次判断
+                  clearTimeout(throttleTimer);
+                  throttleTimer = 0;
+              }, time);
+          }
+      },
+      /**
+       * 防抖
+       * @param fn 函数
+       * @param time 时间
+       */
+      shake(fn, time = 500) {
+          if (typeof fn !== 'function')
+              return console.warn('防抖函数参数一，必须是函数');
+          const context = this;
+          let ages = arguments;
+          if (shakeTimer)
+              clearTimeout(shakeTimer);
+          shakeTimer = setTimeout(() => {
+              // 在定时器里面调用需要 防抖的函数
+              fn.call(context, ages);
+          }, time);
       }
   };
 

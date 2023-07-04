@@ -1,4 +1,6 @@
 // 常用方法
+let throttleTimer: number = 0;
+let shakeTimer: number = 0
 export default {
   /**
    * url-to-object
@@ -85,9 +87,9 @@ export default {
    */
   max(arr: any[], key?: string) {
     if (!arr.length) return console.warn('数组不能为空');
-    const isKeyObj:boolean = arr.some(item => { return Object.keys(item).length });
+    const isKeyObj: boolean = arr.some(item => { return Object.keys(item).length });
     if (isKeyObj && !key) return console.warn('key值不能为空');
-    
+
     let maxs: number | string = 0;
     if (!isKeyObj) { // 一维数组
       maxs = arr.reduce((one, pro) => { return one < pro ? pro : one });
@@ -106,7 +108,7 @@ export default {
    */
   min(arr: any[] = [], key?: string) {
     if (!arr.length) return console.warn('数组不能为空');
-    const isKeyObj:boolean = arr.some(item => { return Object.keys(item).length });
+    const isKeyObj: boolean = arr.some(item => { return Object.keys(item).length });
     if (isKeyObj && !key) return console.warn('key值不能为空');
 
     let mins: number | string = 0;
@@ -117,6 +119,46 @@ export default {
       mins = arr.reduce((one, pro) => { return one[key] > pro[key] ? pro : one })[key];
     };
     return mins;
+  },
+
+  /**
+   * 节流
+   * @param fn 函数
+   * @param time 时间
+   */
+  throttle(fn: Function, time: number = 500) {
+    if (typeof fn !== 'function') return console.warn('节流函数参数一，必须是函数');;
+    // 将this指向赋值   此时的 this 指向的是 实例 button
+    let context = this;
+    // 获取传过来的值
+    let ages = arguments;
+    // 清除定时器
+    if (!throttleTimer) {  // 判定timer没有数值
+      // 声明一个定时器
+      throttleTimer = setTimeout(() => {
+        // 在定时器里面调用需要 节流的函数
+        fn.call(context, ages)
+        // 如果执行到这儿的是否需要把 timer 初始化 为null  ;便于下次判断
+        clearTimeout(throttleTimer);
+        throttleTimer = 0;
+      }, time)
+    }
+  },
+
+  /**
+   * 防抖
+   * @param fn 函数
+   * @param time 时间
+   */
+  shake(fn: Function, time: number = 500) {
+    if (typeof fn !== 'function') return console.warn('防抖函数参数一，必须是函数');
+    const context = this;
+    let ages = arguments;
+    if (shakeTimer) clearTimeout(shakeTimer);
+    shakeTimer = setTimeout(() => {
+      // 在定时器里面调用需要 防抖的函数
+      fn.call(context, ages)
+    }, time);
   }
 
 }

@@ -14,6 +14,8 @@ declare const _default: {
         randomColor(): string;
         max(arr: any[], key?: string | undefined): string | number | void;
         min(arr?: any[], key?: string | undefined): string | number | void;
+        throttle(fn: Function, time?: number): void;
+        shake(fn: Function, time?: number): void;
     };
 };
 export default _default;
