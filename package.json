@@ -1,6 +1,6 @@
 {
   "name": "means-tool",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Common methods of front-end development",
   "main": "dist/index.js",
   "types": "index.d.ts",
